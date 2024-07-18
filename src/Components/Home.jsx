@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 import SkillCategory from './SkillCategory';
+import Logo from '../assets/images/Logo.png'
+import Minhaj from '../assets/images/Minhaj4.png';
 
 
 function Home() {
@@ -78,7 +80,7 @@ function Home() {
         <div className="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12">
             <div className="md:w-1/2">
                 <img 
-                    src="public/images/Minhaj4.PNG" 
+                    src={Minhaj} 
                     alt="Minhaj" 
                     className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-blue-500"
                 />
