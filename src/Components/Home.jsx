@@ -78,7 +78,7 @@ function Home() {
         <div className="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12">
             <div className="md:w-1/2">
                 <img 
-                    src="../public/Minhaj4.PNG" 
+                    src="../public/Images/Minhaj4.PNG" 
                     alt="Minhaj" 
                     className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-blue-500"
                 />
@@ -253,7 +253,7 @@ function Home() {
 <footer className="bg-gray-900 text-gray-300 py-8">
     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left mb-4 md:mb-0 ">
-        <img className="h-5 w-auto mb-4 " src="../public/Logo.PNG" alt="Logo" />
+        <img className="h-5 w-auto mb-4 " src="../public/Images/Logo.PNG" alt="Logo" />
             <p className="text-sm">MERN Stack Developer & UI/UX Designer</p>
            <p className="text-sm">+91 7034936080</p>
         </div>

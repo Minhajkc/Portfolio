@@ -10,7 +10,7 @@ function Projects() {
     { 
       id: 1,
       title: "FruitBasket-E-Commerce",
-      image: "../public/Fruitbasket.png",
+      image: "../public/Images/Fruitbasket.png",
       description:'FruitBasket eCommerce application is a lightweight, Node.js-powered platform for buying and selling fruits online. Using MongoDB for data storage and Handlebars.js for templating, it offers a seam…',
       link:'https://Fruitbasket.site'
     
@@ -18,14 +18,14 @@ function Projects() {
     { 
       id: 2,
       title: "RestoHub-Order-taking-App",
-      image: "../public/Restohub.png",
+      image: "../public/Images/Restohub.png",
       description:'RestoHub is a restaurant management application designed to streamline operations between administrators, waiters, and chefs. It offers distinct functionalities for each role',
        link:'https://resto-hub.vercel.app/'
     },
     { 
       id: 3,
       title: "Sales-Enterprise-App-Using-React",
-      image: "../public/Enterprice.png",
+      image: "../public/Images/Enterprice.png",
       description:'A React mini web application built in React for managing product inventory, sales tracking, and revenue calculation. It offers distinct functionalities for Admin and sales man    ',
       link:'https://sales-enterprise-app-react.vercel.app/'
     },
