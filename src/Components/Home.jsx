@@ -255,7 +255,7 @@ function Home() {
 <footer className="bg-gray-900 text-gray-300 py-8">
     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left mb-4 md:mb-0 ">
-        <img className="h-5 w-auto mb-4 " src="../public/Images/Logo.PNG" alt="Logo" />
+        <img className="h-5 w-auto mb-4 " src={Logo} alt="Logo" />
             <p className="text-sm">MERN Stack Developer & UI/UX Designer</p>
            <p className="text-sm">+91 7034936080</p>
         </div>

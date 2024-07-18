@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../assets/images/Logo.png'
+
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,7 +52,7 @@ function Navbar() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
             
-              <Link to="/" className="rounded-md px-3 py-2 text-sm font-medium text-white" aria-current="page">  <img className="h-5 w-auto" src="public/images/Logo.PNG" alt="Logo"  /></Link>
+              <Link to="/" className="rounded-md px-3 py-2 text-sm font-medium text-white" aria-current="page">  <img className="h-5 w-auto" src={Logo} alt="Logo"  /></Link>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
