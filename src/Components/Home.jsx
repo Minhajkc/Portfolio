@@ -13,17 +13,19 @@ function Home() {
         }, 1000);
         return () => clearInterval(interval);
     }, []);
-
+    const scrollToTop = () => {
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+    };
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white">
             {/* Hero Section */}
-            <section className="flex flex-col items-center justify-center min-h-screen p-5 text-center relative overflow-hidden">
+            <section className="flex flex-col items-center justify-center min-h-screen p-5 text-center relative overflow-hidden bg-pattern-one" id='home'>
     <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-900 opacity-20 animate-pulse"></div>
         <div className="absolute inset-0 bg-[url('/path/to/tech-pattern.png')] opacity-10"></div>
     </div>
     
-    <div className="z-10">
+    <div className="z-0">
         <h1 className="text-6xl font-bold mb-4 animate-fade-in-down">
             Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Minhaj</span>
         </h1>
@@ -57,10 +59,7 @@ function Home() {
                 <FaInstagram className="w-8 h-8" />
             </a>
         </div>
-
-
     </div>
-    
     <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -70,14 +69,16 @@ function Home() {
 
        {/* About Me */}
        <section className="py-20 px-4 bg-gradient-to-l from-gray-900 to-blue-900">
+        
     <div className="max-w-6xl mx-auto ">
+      
         <h2 className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
             About Me
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12">
             <div className="md:w-1/2">
                 <img 
-                    src="/path/to/your-profile-image.jpg" 
+                    src="../public/Minhaj4.PNG" 
                     alt="Minhaj" 
                     className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-blue-500"
                 />
@@ -104,9 +105,18 @@ function Home() {
                     </div>
                 </div>
             </div>
+            
         </div>
+        <div className=" bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-center float-end">
+        <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
     </div>
+    </div>
+    
+   
 </section>
+
 {/* Skills Showcase */}
 <section className="py-20 px-4 bg-gradient-to-r from-gray-900 to-blue-900">
     <div className="max-w-6xl mx-auto">
@@ -121,7 +131,13 @@ function Home() {
             <SkillCategory title="Other Technologies" icon="📚" skills={['Redux', 'MobX', 'WebSockets', 'PWAs', 'SEO Optimization', 'Web Accessibility', 'Cross-Browser Compatibility', 'Performance Optimization', 'Agile/Scrum', 'TDD']} />
             <SkillCategory title="Soft Skills" icon="🤝" skills={['Problem Solving', 'Team Collaboration', 'Communication', 'Time Management', 'Adaptability', 'Creativity', 'Critical Thinking', 'Attention to Detail', 'Project Management', 'Mentoring']} />
         </div>
+        <div className=" bottom-10 left-1/2 transform -translate-x-1/2 mt-10 animate-bounce text-center float-right">
+        <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
     </div>
+    </div>
+  
 </section>
            {/* Projects Gallery */}
 <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900" id="projects">
@@ -160,30 +176,46 @@ function Home() {
                 </div>
             ))}
         </div>
+           <div className=" bottom-10 left-1/2 transform -translate-x-1/2 mt-10 animate-bounce text-center float-right">
+        <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
     </div>
 </section>
 
            {/* Contact Form */}
 <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900" id="contact">
+<h2 className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+           Contact Me
+        </h2>
     <div className="max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2 bg-blue-900 p-8 text-white">
                 <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
                 <p className="mb-6">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
                 <div className="space-y-4">
-                    <div className="flex items-center">
-                        <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        <span>your.email@example.com</span>
-                    </div>
-                    <div className="flex items-center">
-                        <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        <span>+1 (123) 456-7890</span>
-                    </div>
-                    <div className="flex items-center">
-                        <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span>Your Location</span>
-                    </div>
-                </div>
+    <div className="flex items-center">
+        <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>Minhajvvo@gmail.com</span>
+    </div>
+    <div className="flex items-center">
+        <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+        </svg>
+        <span>+91 7034936080</span>
+    </div>
+    <div className="flex items-center">
+        <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        <span>Calicut, Kerala</span>
+    </div>
+  
+</div>
             </div>
             <div className="md:w-1/2 p-8">
                 <form className="space-y-6">
@@ -206,15 +238,26 @@ function Home() {
             </div>
         </div>
     </div>
+    <svg
+        className="h-6 w-6 float-right animate-bounce cursor-pointer mt-10 mr-"
+        fill="none"
+        onClick={scrollToTop}
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path>
+      </svg>
 </section>
 {/* Footer */}
 <footer className="bg-gray-900 text-gray-300 py-8">
     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <div className="text-center md:text-left mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold text-white mb-2">Minhaj</h3>
+        <div className="text-center md:text-left mb-4 md:mb-0 ">
+        <img className="h-5 w-auto mb-4 " src="../public/Logo.PNG" alt="Logo" />
             <p className="text-sm">MERN Stack Developer & UI/UX Designer</p>
+           <p className="text-sm">+91 7034936080</p>
         </div>
-        <div className="flex justify-center space-x-6">
+      <div className="flex justify-center space-x-6">
             <a href="https://github.com/minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaGithub className="w-8 h-8" />
             </a>
