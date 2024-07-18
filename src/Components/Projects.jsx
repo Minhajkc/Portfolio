@@ -1,9 +1,8 @@
 import React from 'react';
 import { CodeIcon } from "@heroicons/react/solid";
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
-import EnterPrice from '../assets/images/Enterprice.png'
-import Fruit from '../assets/images/Fruitbasket.png';
-import Hotel from '../assets/images/Restohub.png'
+
+
 
 
 function Projects() {
@@ -12,7 +11,7 @@ function Projects() {
     { 
       id: 1,
       title: "FruitBasket-E-Commerce",
-      image: '../assets/images/Fruitbasket.png',
+      image: "/images/Fruitbasket.png",
       description:'FruitBasket eCommerce application is a lightweight, Node.js-powered platform for buying and selling fruits online. Using MongoDB for data storage and Handlebars.js for templating, it offers a seam…',
       link:'https://Fruitbasket.site'
     
@@ -20,14 +19,14 @@ function Projects() {
     { 
       id: 2,
       title: "RestoHub-Order-taking-App",
-      image: "../assets/images/Restohub.png",
+      image: "/images/Restohub.png",
       description:'RestoHub is a restaurant management application designed to streamline operations between administrators, waiters, and chefs. It offers distinct functionalities for each role',
        link:'https://resto-hub.vercel.app/'
     },
     { 
       id: 3,
       title: "Sales-Enterprise-App-Using-React",
-      image: '../assets/images/Enterprice.png',
+      image: "/images/Enterprice.png",
       description:'A React mini web application built in React for managing product inventory, sales tracking, and revenue calculation. It offers distinct functionalities for Admin and sales man    ',
       link:'https://sales-enterprise-app-react.vercel.app/'
     },
