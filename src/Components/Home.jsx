@@ -78,7 +78,7 @@ function Home() {
         <div className="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12">
             <div className="md:w-1/2">
                 <img 
-                    src="../public/Images/Minhaj4.PNG" 
+                    src="public/images/Minhaj4.PNG" 
                     alt="Minhaj" 
                     className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-blue-500"
                 />
