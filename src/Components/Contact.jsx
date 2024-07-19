@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaWhatsapp  } from 'react-icons/fa6';
+
 function Contact() {
 
     const [formData, setFormData] = useState({
@@ -143,6 +144,15 @@ function Contact() {
         </div>
         
     </div>
+ 
+    <a
+  href="https://wa.me/917034936080" // Corrected: Removed the extra forward slash
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
+>
+  <FaWhatsapp size={30} />
+</a>
 
 </section>
   )
