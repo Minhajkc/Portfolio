@@ -20,30 +20,37 @@ function Contact() {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
+        
+      
+        if (!formData.name || !formData.email || !formData.message) {
+            alert('Items field cannot be empty');
+            return;
+        }
+        
         const scriptURL = 'https://script.google.com/macros/s/AKfycby9GzqGyg_gX_IKdr-PTZ90AM1J49M4uYnl_IjDaZ8ujeNPmWq5k8ZgLDvThz-hZw_m/exec';
         setLoading(true);
+        
         try {
-          const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: new URLSearchParams(formData),
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          });
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            });
     
-          if (response.ok) {
-            alert('Form submitted successfully');
-            window.location.reload();
-          } else {
-            alert('Something went wrong');
-          }
+            if (response.ok) {
+                alert('Form submitted successfully');
+                window.location.reload();
+            } else {
+                alert('Something went wrong');
+            }
         } catch (error) {
-          alert('Something went wrong');
+            alert('Something went wrong');
         } finally {
             setLoading(false);
-          }
-      };
-
+        }
+    };
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900 h-screen overflow-auto " id="contact">
           <h2 className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">

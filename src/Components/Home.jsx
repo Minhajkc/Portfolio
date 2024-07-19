@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 import SkillCategory from './SkillCategory';
 import Logo from '../assets/images/Logo.png'
 import Minhaj from '../assets/images/Minhaj4.png';
+import CodingBackground from './CodingBackground';
 
 
 function Home() {
@@ -37,30 +38,38 @@ function Home() {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
+        
+      
+        if (!formData.name || !formData.email || !formData.message) {
+            alert('Items field cannot be empty');
+            return;
+        }
+        
         const scriptURL = 'https://script.google.com/macros/s/AKfycby9GzqGyg_gX_IKdr-PTZ90AM1J49M4uYnl_IjDaZ8ujeNPmWq5k8ZgLDvThz-hZw_m/exec';
         setLoading(true);
+        
         try {
-          const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: new URLSearchParams(formData),
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          });
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            });
     
-          if (response.ok) {
-            alert('Form submitted successfully');
-            window.location.reload();
-          } else {
-            alert('Something went wrong');
-          }
+            if (response.ok) {
+                alert('Form submitted successfully');
+                window.location.reload();
+            } else {
+                alert('Something went wrong');
+            }
         } catch (error) {
-          alert('Something went wrong');
+            alert('Something went wrong');
         } finally {
             setLoading(false);
-          }
-      };
-
+        }
+    };
+    
     
     const projects = [
         { 
@@ -93,11 +102,12 @@ function Home() {
             {/* Hero Section */}
             <section className="flex flex-col items-center justify-center min-h-screen p-5 text-center relative overflow-hidden bg-pattern-one" id='home'>
     <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-900 opacity-20 animate-pulse"></div>
+    <CodingBackground />
         <div className="absolute inset-0 bg-[url('/path/to/tech-pattern.png')] opacity-10"></div>
     </div>
     
     <div className="z-0">
+        
         <h1 className="text-6xl font-bold mb-4 animate-fade-in-down">
             Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Minhaj</span>
         </h1>
