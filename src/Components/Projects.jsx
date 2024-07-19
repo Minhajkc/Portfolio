@@ -69,10 +69,24 @@ function Projects() {
               Explore Project →
             </a>
           </div>
+          
         </div>
+        
       ))}
         </div>
+      
     </div>
+   <div>
+    <div className="flex flex-col items-center justify-center py-12 px-4 sm:">
+    <a 
+             
+             className="inline-block px-4 cursor-pointer py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold"
+             href='https://github.com/Minhajkc?tab=repositories'
+           >
+             Explore More Projects →
+           </a>
+    </div>
+   </div>
     <div className="flex justify-center space-x-6 mt-10">
             <a href="https://github.com/minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaGithub className="w-8 h-8" />
