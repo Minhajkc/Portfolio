@@ -18,6 +18,76 @@ function Home() {
     const scrollToTop = () => {
       document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
     };
+
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+      });
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      };
+      const [loading, setLoading] = useState(false);
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby9GzqGyg_gX_IKdr-PTZ90AM1J49M4uYnl_IjDaZ8ujeNPmWq5k8ZgLDvThz-hZw_m/exec';
+        setLoading(true);
+        try {
+          const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: new URLSearchParams(formData),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          });
+    
+          if (response.ok) {
+            alert('Form submitted successfully');
+            window.location.reload();
+          } else {
+            alert('Something went wrong');
+          }
+        } catch (error) {
+          alert('Something went wrong');
+        } finally {
+            setLoading(false);
+          }
+      };
+
+    
+    const projects = [
+        { 
+          id: 1,
+          title: "FruitBasket-E-Commerce",
+          image: "/images/Fruitbasket.png",
+          description: 'FruitBasket eCommerce application is a lightweight, Node.js-powered platform for buying and selling fruits online. Using MongoDB for data storage and Handlebars.js for templating, it offers a seamless shopping experience.',
+          link: 'https://Fruitbasket.site',
+          technologies: [ 'Node.js', 'MongoDB', 'Express','HBS']
+        },
+        { 
+          id: 2,
+          title: "RestoHub-Order-taking-App",
+          image: "/images/Restohub.png",
+          description: 'RestoHub is a restaurant management application designed to streamline operations between administrators, waiters, and chefs. It offers distinct functionalities for each role.',
+          link: 'https://resto-hub.vercel.app/',
+          technologies: ['React']
+        },
+        { 
+          id: 3,
+          title: "Sales-Enterprise-App-Using-React",
+          image: "/images/Enterprice.png",
+          description: 'A React mini web application built in React for managing product inventory, sales tracking, and revenue calculation. It offers distinct functionalities for Admin and sales man.',
+          link: 'https://sales-enterprise-app-react.vercel.app/',
+          technologies: ['React']
+        },
+      ];
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white">
             {/* Hero Section */}
@@ -126,12 +196,12 @@ function Home() {
             Skills & Expertise
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <SkillCategory title="Frontend Development" icon="🖥️" skills={['React','JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']} />
-            <SkillCategory title="Backend Development" icon="🔧" skills={['Node.js', 'Express.js', 'Python', 'Django', 'RESTful APIs', 'GraphQL', 'MongoDB', 'PostgreSQL', 'MySQL', 'Redis']} />
-            <SkillCategory title="DevOps & Tools" icon="🛠️" skills={['Git', 'Docker', 'AWS', 'CI/CD', 'Jest', 'Webpack', 'Babel', 'npm/Yarn', 'Linux', 'Bash Scripting']} />
-            <SkillCategory title="UI/UX Design" icon="🎨" skills={['Figma', 'Adobe XD', 'Sketch', 'Prototyping', 'Wire-framing', 'User Research', 'Usability Testing', 'Responsive Design', 'Color Theory', 'Typography']} />
-            <SkillCategory title="Other Technologies" icon="📚" skills={['Redux', 'MobX', 'WebSockets', 'PWAs', 'SEO Optimization', 'Web Accessibility', 'Cross-Browser Compatibility', 'Performance Optimization', 'Agile/Scrum', 'TDD']} />
-            <SkillCategory title="Soft Skills" icon="🤝" skills={['Problem Solving', 'Team Collaboration', 'Communication', 'Time Management', 'Adaptability', 'Creativity', 'Critical Thinking', 'Attention to Detail', 'Project Management', 'Mentoring']} />
+            <SkillCategory title="Frontend Development" icon="🖥️" skills={['React','JavaScript (ES6+)', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']} />
+            <SkillCategory title="Backend Development" icon="🔧" skills={['Node.js', 'Express.js','RESTful APIs', 'MongoDB']} />
+            <SkillCategory title="DevOps & Tools" icon="🛠️" skills={['Git', 'AWS',  'Webpack', 'Babel', 'npm/Yarn']} />
+            <SkillCategory title="UI/UX Design" icon="🎨" skills={['Figma', 'Sketch', 'Prototyping', 'Usability Testing', 'Responsive Design', 'Color Theory']} />
+            <SkillCategory title="Other Technologies" icon="📚" skills={['Redux', 'WebSockets','Performance Optimization']} />
+            <SkillCategory title="Soft Skills" icon="🤝" skills={['Problem Solving', 'Team Collaboration', 'Communication', 'Time Management', 'Adaptability', 'Creativity', 'Critical Thinking','Project Management', 'Mentoring']} />
         </div>
         <div className=" bottom-10 left-1/2 transform -translate-x-1/2 mt-10 animate-bounce text-center float-right">
         <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -148,35 +218,34 @@ function Home() {
             Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((project) => (
-                <div key={project} className="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-all duration-300 ease-in-out">
-                    <img 
-                        src={`https://source.unsplash.com/random/800x600?tech,${project}`} 
-                        alt={`Project ${project}`} 
-                        className="w-full h-48 object-cover hover:opacity-75 transition-opacity duration-300"
-                    />
-                    <div className="p-6">
-                        <h3 className="text-2xl font-bold mb-3 text-white">Project {project}</h3>
-                        <p className="text-gray-300 mb-4">
-                            Innovative solution showcasing MERN stack proficiency and sleek UI/UX design. 
-                            This project demonstrates the seamless integration of frontend and backend technologies.
-                        </p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                            {['React', 'Node.js', 'MongoDB', 'Express'].map((tech, index) => (
-                                <span key={index} className="px-2 py-1 bg-blue-600 text-xs text-white rounded-full">
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
-                        <a 
-                            href="#" 
-                            className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold"
-                        >
-                            Explore Project →
-                        </a>
-                    </div>
-                </div>
-            ))}
+        {projects.map((project) => (
+        <div key={project.id} className="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-all duration-300 ease-in-out">
+          <img 
+            src={project.image} 
+            alt={`Project ${project.title}`} 
+            className="w-full h-48 object-cover hover:opacity-75 transition-opacity duration-300"
+          />
+          <div className="p-6">
+            <h3 className="text-2xl font-bold mb-3 text-white">{project.title}</h3>
+            <p className="text-gray-300 mb-4">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech, index) => (
+                <span key={index} className="px-2 py-1 bg-blue-600 text-xs text-white rounded-full">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <a 
+              href={project.link} 
+              className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold"
+            >
+              Explore Project →
+            </a>
+          </div>
+        </div>
+      ))}
         </div>
            <div className=" bottom-10 left-1/2 transform -translate-x-1/2 mt-10 animate-bounce text-center float-right">
         <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,23 +289,52 @@ function Home() {
 </div>
             </div>
             <div className="md:w-1/2 p-8">
-                <form className="space-y-6">
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                        <input type="text" id="name" placeholder="Your Name" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white" />
-                    </div>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                        <input type="email" id="email" placeholder="Your Email" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white" />
-                    </div>
-                    <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                        <textarea id="message" placeholder="Your Message" rows="4" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"></textarea>
-                    </div>
-                    <button type="submit" className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        Send Message
-                    </button>
-                </form>
+            {loading ? (
+         <div className="text-center text-blue-500">
+         Please wait, form is submitting...
+       </div>
+      ):null}
+            <form className="space-y-6" id="gform" method="POST" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
+        <textarea
+          id="message"
+          placeholder="Your Message"
+          name="message"
+          rows="4"
+          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+          value={formData.message}
+          onChange={handleChange}
+        ></textarea>
+      </div>
+      <button type="submit" className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        Send Message
+      </button>
+    </form>
             </div>
         </div>
     </div>

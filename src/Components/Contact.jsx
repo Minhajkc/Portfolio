@@ -1,6 +1,47 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
 function Contact() {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+      });
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      };
+      const [loading, setLoading] = useState(false);
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby9GzqGyg_gX_IKdr-PTZ90AM1J49M4uYnl_IjDaZ8ujeNPmWq5k8ZgLDvThz-hZw_m/exec';
+        setLoading(true);
+        try {
+          const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: new URLSearchParams(formData),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          });
+    
+          if (response.ok) {
+            alert('Form submitted successfully');
+            window.location.reload();
+          } else {
+            alert('Something went wrong');
+          }
+        } catch (error) {
+          alert('Something went wrong');
+        } finally {
+            setLoading(false);
+          }
+      };
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900 h-screen overflow-auto " id="contact">
@@ -52,23 +93,52 @@ function Contact() {
 
             </div>
             <div className="md:w-1/2 p-8">
-                <form className="space-y-6">
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                        <input type="text" id="name" placeholder="Your Name" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white" />
-                    </div>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                        <input type="email" id="email" placeholder="Your Email" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white" />
-                    </div>
-                    <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                        <textarea id="message" placeholder="Your Message" rows="4" className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"></textarea>
-                    </div>
-                    <button type="submit" className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        Send Message
-                    </button>
-                </form>
+            {loading ? (
+         <div className="text-center text-blue-500">
+         Please wait, form is submitting...
+       </div>
+      ):null}
+            <form className="space-y-6" id="gform" method="POST" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
+        <textarea
+          id="message"
+          placeholder="Your Message"
+          name="message"
+          rows="4"
+          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+          value={formData.message}
+          onChange={handleChange}
+        ></textarea>
+      </div>
+      <button type="submit" className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-lg text-white font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        Send Message
+      </button>
+    </form>
             </div>
         </div>
         

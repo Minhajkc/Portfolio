@@ -6,7 +6,7 @@ const SkillCategory = ({ title, icon, skills }) => (
         </h3>
         <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-                <span key={skill} className="px-3 py-1 bg-blue-900 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors cursor-default">
+                <span key={skill} className="px-3 py-2 bg-blue-900 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors cursor-default">
                     {skill}
                 </span>
             ))}
