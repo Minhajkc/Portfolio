@@ -6,13 +6,31 @@ import Projects from './Components/Projects';
 import Contact from './Components/Contact';
 import Navbar from './Components/Navbar';
 
+function AnimatedRoute({ component: Component, ...rest }) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100); // Slight delay to ensure animation triggers
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className={`animated-route ${isVisible ? 'visible' : ''}`}>
+      <Component {...rest} />
+    </div>
+  );
+}
+
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowNavbar(true);
-    }, 1000); // 5 seconds delay
+    }, 1000); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -21,26 +39,30 @@ function App() {
     <Router>
       <div>
         {showNavbar && (
-          <div className="navbar-container" style={{ animation: 'slideDown 0.5s ease-out' }}>
+          <div className="navbar-container">
             <Navbar />
           </div>
         )}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<AnimatedRoute component={Home} />} />
+          <Route path="/about" element={<AnimatedRoute component={About} />} />
+          <Route path="/projects" element={<AnimatedRoute component={Projects} />} />
+          <Route path="/contact" element={<AnimatedRoute component={Contact} />} />
         </Routes>
       </div>
       <style jsx>{`
         @keyframes slideDown {
-          from {
-            transform: translateY(-100%);
+          from { transform: translateY(-100%); }
+          to { transform: translateY(0); }
+        }
+        @keyframes slideUpFadeIn {
+          from { 
             opacity: 0;
+            transform: translateY(20px);
           }
-          to {
+          to { 
+            opacity: 1;
             transform: translateY(0);
-            opacity: 10;
           }
         }
         .navbar-container {
@@ -49,6 +71,18 @@ function App() {
           left: 0;
           right: 0;
           z-index: 1000;
+          animation: slideDown 0.5s ease-out;
+          backdrop-filter: blur(5px);
+          background-color: rgba(255, 255, 255, 1); /* Full opacity */
+        }
+        .animated-route {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .animated-route.visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
     </Router>
