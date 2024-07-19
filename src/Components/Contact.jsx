@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaWhatsapp  } from 'react-icons/fa6';
 
+
 function Contact() {
 
     const [formData, setFormData] = useState({
@@ -53,10 +54,12 @@ function Contact() {
     };
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900 h-screen overflow-auto " id="contact">
+    
           <h2 className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Contact Me
         </h2>
     <div className="max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-2xl overflow-auto ">
+        
         <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2 bg-blue-900 p-8 text-white">
                 <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
@@ -85,6 +88,7 @@ function Contact() {
 </div>
 
 <div className="flex justify-center space-x-6 mt-20">
+    
     <a href="https://github.com/minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
         <FaGithub className="w-8 h-8" />
     </a>
@@ -107,6 +111,7 @@ function Contact() {
        </div>
       ):null}
             <form className="space-y-6" id="gform" method="POST" onSubmit={handleSubmit}>
+                
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
         <input
@@ -156,7 +161,7 @@ function Contact() {
   href="https://wa.me/917034936080" 
   target="_blank"
   rel="noopener noreferrer"
-  className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
+  className="fixed bottom-4 right-4 bg-blue-800 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
 >
   <FaWhatsapp size={30} />
 </a>
