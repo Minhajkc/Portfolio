@@ -109,6 +109,14 @@ function Contact() {
                 <FaTelegram  className="w-8 h-8" />
             </a>
 </div>
+<a
+  href="https://wa.me/917034936080" 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300"
+>
+  <FaWhatsapp size={30} />
+</a>
 
             </div>
             <div className="md:w-1/2 p-8">
@@ -116,6 +124,7 @@ function Contact() {
          <div className="text-center text-blue-500">
          Please wait, form is submitting...
        </div>
+       
       ):null}
             <form className="space-y-6" id="gform" method="POST" onSubmit={handleSubmit}>
                 
@@ -164,14 +173,7 @@ function Contact() {
         
     </div>
  
-    <a
-  href="https://wa.me/917034936080" 
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300"
->
-  <FaWhatsapp size={30} />
-</a>
+ 
 
 </section>
   )
