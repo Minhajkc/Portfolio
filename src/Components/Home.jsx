@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaFacebook,FaTelegram } from 'react-icons/fa6';
 import SkillCategory from './SkillCategory';
 import Logo from '../assets/images/Logo.png'
 import Minhaj from '../assets/images/Minhaj4.png';
@@ -9,13 +9,20 @@ import CodingBackground from './CodingBackground';
 function Home() {
     const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
     const skills = ['MERN Stack Developer', 'UI/UX Designer'];
+    const [fadeClass, setFadeClass] = useState('opacity-100');
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
-        }, 1000);
+            setFadeClass('opacity-0');
+            setTimeout(() => {
+                setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
+                setFadeClass('opacity-100');
+            }, 300); 
+        }, 2000); 
+
         return () => clearInterval(interval);
     }, []);
+
     const scrollToTop = () => {
       document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
     };
@@ -111,9 +118,10 @@ function Home() {
         <h1 className="text-6xl font-bold mb-4 animate-fade-in-down">
             Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Minhaj</span>
         </h1>
-        <p className="text-2xl mb-8 h-8 animate-fade-in">
+        <p className={`text-2xl mb-3 transition-opacity duration-500 ${fadeClass}`}>
             <span className="typing-effect">{skills[currentSkillIndex]}</span>
         </p>
+      
         <p className="max-w-2xl mx-auto text-lg text-gray-300 mb-8 animate-fade-in">
             Passionate about creating innovative web solutions and user-centric designs. 
             Let's bring your digital ideas to life!
@@ -139,6 +147,12 @@ function Home() {
             </a>
             <a href="https://instagram.com/minhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaInstagram className="w-8 h-8" />
+            </a>
+            <a href="https://www.facebook.com/muhammedminhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaFacebook className="w-8 h-8" />
+            </a>
+            <a href="https://telegram.me/Minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaTelegram  className="w-8 h-8" />
             </a>
         </div>
     </div>
@@ -363,7 +377,9 @@ function Home() {
 <footer className="bg-gray-900 text-gray-300 py-8">
     <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left mb-4 md:mb-0 ">
-        <img className="h-5 w-auto mb-4 " src={Logo} alt="Logo" />
+        <div className='flex justify-center md:justify-start mb-4'>
+    <img className="h-5 w-auto" src={Logo} alt="Logo" />
+  </div>
             <p className="text-sm">MERN Stack Developer & UI/UX Designer</p>
            <p className="text-sm">+91 7034936080</p>
         </div>
@@ -380,6 +396,12 @@ function Home() {
             </a>
             <a href="https://instagram.com/minhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaInstagram className="w-8 h-8" />
+            </a>
+            <a href="https://www.facebook.com/muhammedminhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaFacebook className="w-8 h-8" />
+            </a>
+            <a href="https://telegram.me/Minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaTelegram  className="w-8 h-8" />
             </a>
         </div>
     </div>

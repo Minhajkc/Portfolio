@@ -1,8 +1,6 @@
 import React from 'react';
 import Minhaj from '../assets/images/Minhaj4.png';
-
-
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaFacebook,FaTelegram } from 'react-icons/fa6';
 function About() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900 min-h-screen">
@@ -56,6 +54,12 @@ function About() {
             </a>
             <a href="https://instagram.com/minhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaInstagram className="w-8 h-8" />
+            </a>
+            <a href="https://www.facebook.com/muhammedminhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaFacebook className="w-8 h-8" />
+            </a>
+            <a href="https://telegram.me/Minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaTelegram  className="w-8 h-8" />
             </a>
         </div>
     </section>

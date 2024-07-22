@@ -2,7 +2,7 @@ import React from 'react';
 
 const CodingBackground = () => {
   return (
-    <div className="absolute inset-0 opacity-75 bg-gradient-to-r from-blue-900 to-blue-900 animate-pulse overflow-hidden">
+    <div className="absolute inset-0 opacity-35 bg-gradient-to-r from-blue-900 to-blue-900 animate-pulse overflow-hidden">
       {/* Code lines */}
       {[...Array(10)].map((_, i) => (
         <div 

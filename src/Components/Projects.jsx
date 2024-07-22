@@ -1,6 +1,5 @@
 import React from 'react';
-import { CodeIcon } from "@heroicons/react/solid";
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaFacebook,FaTelegram } from 'react-icons/fa6';
 
 
 
@@ -31,7 +30,35 @@ function Projects() {
           description: 'A React mini web application built in React for managing product inventory, sales tracking, and revenue calculation. It offers distinct functionalities for Admin and sales man.',
           link: 'https://sales-enterprise-app-react.vercel.app/',
           technologies: ['React']
-        },
+        }
+        ,
+        { 
+          id: 4,
+          title: "NightOwl AI",
+          image: "/images/Ai.png",
+          description: 'NightOwl AI is an intelligent question-answering tool that leverages the power of AI to provide quick and accurate responses to user queries. Built with React and styled using Tailwind CSS, this application offers a sleek, responsive interface with a default dark mode for comfortable nighttime use',
+          link: 'https://nightowlai.vercel.app/',
+          technologies: ['React']
+        }
+        ,
+        { 
+          id: 5,
+          title: "Income and Expense Calculator",
+          image: "/images/cal.png",
+          description: 'This simple web application helps you track and manage your income and expenses. Using JavaScript, this tool allows you to keep an eye on your financial activities with ease.Check out the live demo of the Income and Expense Calculator',
+          link: 'https://minhajkc.github.io/Income-Expense-Calculator-using-js/',
+          technologies: ['JavaScript']
+        }
+        ,
+        { 
+          id: 6,
+          title: "Post-Planner-Using-React",
+          image: "/images/pp.png",
+          description: 'A powerful and intuitive React application for scheduling and managing your social media posts efficiently. This tool is designed to help users plan, organize, and track their social media content with ease.Easily schedule posts by adding text, images, and links. Specify the date and time for each post',
+          link: 'https://post-planner-using-react.vercel.app/',
+          technologies: ['React']
+        }
+        
       ];
 
   return (
@@ -100,6 +127,12 @@ function Projects() {
             </a>
             <a href="https://instagram.com/minhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaInstagram className="w-8 h-8" />
+            </a>
+            <a href="https://www.facebook.com/muhammedminhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaFacebook className="w-8 h-8" />
+            </a>
+            <a href="https://telegram.me/Minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaTelegram  className="w-8 h-8" />
             </a>
         </div>
 </section>

@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaWhatsapp  } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaWhatsapp, FaFacebook,FaTelegram } from 'react-icons/fa6';
+
 
 
 function Contact() {
@@ -101,6 +102,12 @@ function Contact() {
     <a href="https://instagram.com/minhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
         <FaInstagram className="w-8 h-8" />
     </a>
+    <a href="https://www.facebook.com/muhammedminhaj.kc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaFacebook className="w-8 h-8" />
+            </a>
+            <a href="https://telegram.me/Minhajkc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaTelegram  className="w-8 h-8" />
+            </a>
 </div>
 
             </div>
@@ -161,7 +168,7 @@ function Contact() {
   href="https://wa.me/917034936080" 
   target="_blank"
   rel="noopener noreferrer"
-  className="fixed bottom-4 right-4 bg-blue-800 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
+  className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300"
 >
   <FaWhatsapp size={30} />
 </a>
