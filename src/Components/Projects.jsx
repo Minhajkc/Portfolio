@@ -106,13 +106,14 @@ function Projects() {
    <div>
    <div className="flex flex-col items-center justify-center py-12 px-4 sm:">
   <a 
-    className="inline-flex items-center px-4 cursor-pointer py-2 bg-black text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-semibold text-lg"
+    className="inline-flex items-center px-5 cursor-pointer py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300 font-semibold text-sm"
     href='https://github.com/Minhajkc?tab=repositories'
   >
-    <FaGithub className="w-5 h-5 text-sm mr-2" /> 
+    <FaGithub className="w-4 h-4 mr-2 " /> 
     Explore More Projects →
   </a>
 </div>
+
 
    </div>
     <div className="flex justify-center space-x-6 mt-10">
