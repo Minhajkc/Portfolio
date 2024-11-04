@@ -1,5 +1,5 @@
 import React from 'react';
-import Minhaj from '../assets/images/Minhaj4.png';
+import Minhaj from '../assets/images/Minhajreal.png';
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaFacebook,FaTelegram } from 'react-icons/fa6';
 function About() {
   return (
@@ -11,10 +11,10 @@ function About() {
      
         <div className="flex flex-col mt- md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12">
             <div className="md:w-1/2">
-                <img 
-                   src={Minhaj}
+            <img 
+                    src={Minhaj} 
                     alt="Minhaj" 
-                    className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-blue-500"
+                    className="rounded-full w-64 h-74 object-cover mx-auto shadow-lg border-4 border-blue-500"
                 />
             </div>
             <div className="md:w-1/2 space-y-6">

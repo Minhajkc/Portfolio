@@ -16,6 +16,14 @@ function Projects() {
           technologies: [ 'Node.js', 'MongoDB', 'Express','HBS']
         },
         { 
+          id: 7,
+          title: "Eduprops E-Learning",
+          image: "/images/Eduprops.png",
+          description: 'EduProps is an innovative e-learning web application built with React, MongoDB, Express, and Node. It features three interfaces: students, admin, and mentor, providing comprehensive tools for education management.',
+          link: 'https://github.com/Minhajkc/Eduprops.git/',
+          technologies: ['React','Node.js', 'MongoDB', 'Express']
+        },
+        { 
           id: 2,
           title: "RestoHub-Order-taking-App",
           image: "/images/Restohub.png",

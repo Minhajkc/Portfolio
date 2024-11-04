@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram,FaFacebook,FaTelegram } from 'react-icons/fa6';
 import SkillCategory from './SkillCategory';
 import Logo from '../assets/images/Logo.png'
-import Minhaj from '../assets/images/Minhaj4.png';
+import Minhaj from '../assets/images/Minhajreal.png';
 import CodingBackground from './CodingBackground';
+import { Link } from 'react-router-dom';
+import { FolderKanban  } from 'lucide-react';
 
 
 function Home() {
     const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
-    const skills = ['MERN Stack Developer', 'UI/UX Designer'];
+    const skills = ['Full Stack (MERN) Developer', 'UI/UX Designer'];
     const [fadeClass, setFadeClass] = useState('opacity-100');
 
     useEffect(() => {
@@ -88,6 +90,14 @@ function Home() {
           technologies: [ 'Node.js', 'MongoDB', 'Express','HBS']
         },
         { 
+            id: 3,
+            title: "Eduprops E-Learning",
+            image: "/images/Eduprops.png",
+            description: 'EduProps is an innovative e-learning web application built with React, MongoDB, Express, and Node. It features three interfaces: students, admin, and mentor, providing comprehensive tools for education management.',
+            link: 'https://github.com/Minhajkc/Eduprops.git/',
+            technologies: ['React','Node.js', 'MongoDB', 'Express']
+          },
+        { 
           id: 2,
           title: "RestoHub-Order-taking-App",
           image: "/images/Restohub.png",
@@ -95,14 +105,7 @@ function Home() {
           link: 'https://resto-hub.vercel.app/',
           technologies: ['React']
         },
-        { 
-          id: 3,
-          title: "Sales-Enterprise-App-Using-React",
-          image: "/images/Enterprice.png",
-          description: 'A React mini web application built in React for managing product inventory, sales tracking, and revenue calculation. It offers distinct functionalities for Admin and sales man.',
-          link: 'https://sales-enterprise-app-react.vercel.app/',
-          technologies: ['React']
-        },
+       
       ];
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white">
@@ -172,11 +175,11 @@ function Home() {
             About Me
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0 md:space-x-12">
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 ">
                 <img 
                     src={Minhaj} 
                     alt="Minhaj" 
-                    className="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-blue-500"
+                    className="rounded-full w-64 h-74 object-cover mx-auto shadow-lg border-4 border-blue-500"
                 />
             </div>
             <div className="md:w-1/2 space-y-6">
@@ -214,27 +217,108 @@ function Home() {
 </section>
 
 {/* Skills Showcase */}
-<section className="py-20 px-4 bg-gradient-to-r from-gray-900 to-blue-900">
+<section className="py-20 px-4 bg-gradient-to-r from-gray-900 to-blue-900" id="skills">
     <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
             Skills & Expertise
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <SkillCategory title="Frontend Development" icon="🖥️" skills={['React','JavaScript (ES6+)', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']} />
-            <SkillCategory title="Backend Development" icon="🔧" skills={['Node.js', 'Express.js','RESTful APIs', 'MongoDB']} />
-            <SkillCategory title="DevOps & Tools" icon="🛠️" skills={['Git', 'AWS',  'Webpack', 'Babel', 'npm/Yarn']} />
-            <SkillCategory title="UI/UX Design" icon="🎨" skills={['Figma', 'Sketch', 'Prototyping', 'Usability Testing', 'Responsive Design', 'Color Theory']} />
-            <SkillCategory title="Other Technologies" icon="📚" skills={['Redux', 'WebSockets','Performance Optimization']} />
-            <SkillCategory title="Soft Skills" icon="🤝" skills={['Problem Solving', 'Team Collaboration', 'Communication', 'Time Management', 'Adaptability', 'Creativity', 'Critical Thinking','Project Management', 'Mentoring']} />
+
+            {/* 1. Frontend Development */}
+            <SkillCategory 
+                title="Frontend Development" 
+                icon="🖥️" 
+                skills={[
+                    'React (SPA Development)', 
+                    'JavaScript (ES6+)', 
+                    'HTML5 & CSS3', 
+                    'Tailwind CSS & Bootstrap', 
+                    'Responsive Design',
+                    'Figma & Sketch',
+                    'Wireframing & Prototyping'
+                ]} 
+            />
+
+            {/* 2. Backend Development */}
+            <SkillCategory 
+                title="Backend Development" 
+                icon="🔧" 
+                skills={[
+                    'Node.js', 
+                    'Express.js', 
+                    'RESTful APIs', 
+                    'MongoDB & Database Design', 
+                    'Authentication & Authorization (JWT)',
+                    'Database Design'
+                ]} 
+            />
+
+            {/* 3. DevOps & Tools */}
+            <SkillCategory 
+                title="DevOps & Tools" 
+                icon="🛠️" 
+                skills={[
+                    'Git & Version Control', 
+                    'AWS & Cloud Deployment', 
+                    'Webpack & Babel', 
+                    'npm/Yarn', 
+                    'Project Planning & Scheduling'
+                ]} 
+            />
+
+            {/* 4. UI/UX & Design Principles */}
+            <SkillCategory 
+                title="UI/UX & Design Principles" 
+                icon="🎨" 
+                skills={[
+                    'Responsive Design Principles', 
+                    'Color Theory & Typography',
+                    'Usability Testing', 
+                    'Wireframing & Prototyping', 
+                    'User-Centered Design'
+                ]} 
+            />
+
+            {/* 5. Project Management & Agile */}
+            <SkillCategory 
+                title="Project Management & Agile" 
+                icon="📈" 
+                skills={[
+                    'Agile Methodology (Scrum & Kanban)', 
+                    'Effective Sprint Planning',
+                    'Team Collaboration', 
+                    'Time Management', 
+                    'Mentoring & Leadership'
+                ]} 
+            />
+
+            {/* 6. Additional Technologies */}
+            <SkillCategory 
+                title="Additional Technologies" 
+                icon="📚" 
+                skills={[
+                    'Redux for State Management', 
+                    'WebSockets for Real-Time Communication', 
+                    'Performance Optimization',
+                    'APIs & Integrations', 
+                    'MVC Architecture',
+                    'Soft Skills: Problem Solving, Creativity, Adaptability'
+                ]} 
+            />
+
         </div>
-        <div className=" bottom-10 left-1/2 transform -translate-x-1/2 mt-10 animate-bounce text-center float-right">
-        <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+
+        {/* Scroll Down Arrow */}
+        <div className="bottom-10 left-1/2 transform -translate-x-1/2 mt-10 animate-bounce text-center">
+            <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
     </div>
-    </div>
-  
 </section>
+
+
+
            {/* Projects Gallery */}
 <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-blue-900" id="projects">
     <div className="max-w-6xl mx-auto">
@@ -277,6 +361,15 @@ function Home() {
         </svg>
     </div>
     </div>
+    <div className="mt-10 text-center">
+            <Link 
+                to="/projects"
+                className="inline-block px-3 py-2 bg-blue-600 text-white font-semibold text-xs ml-40 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+            >
+                My Projects →
+            </Link>
+        </div>
+       
 </section>
 
            {/* Contact Form */}
@@ -380,7 +473,7 @@ function Home() {
         <div className='flex justify-center md:justify-start mb-4'>
     <img className="h-5 w-auto" src={Logo} alt="Logo" />
   </div>
-            <p className="text-sm">MERN Stack Developer & UI/UX Designer</p>
+            <p className="text-sm">Full Stack Developer(MERN) & UI/UX Designer</p>
            <p className="text-sm">+91 7034936080</p>
         </div>
       <div className="flex justify-center space-x-6">
