@@ -130,7 +130,7 @@ function Home() {
             Let's bring your digital ideas to life!
         </p>
         <div className="flex justify-center space-x-4 mb-8">
-    <a href="#contact" className="px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+    <a href="#contact" className="px-4 sm:px-8 py-2 sm:py-3 animate-bounce bg-blue-600 hover:bg-blue-700 transition-all duration-300 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
         Get In Touch
     </a>
     <a href="#projects" className="px-4 sm:px-8 py-2 sm:py-3 bg-transparent border-2 border-blue-600 hover:bg-blue-600 transition-all duration-300 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -362,12 +362,14 @@ function Home() {
     </div>
     </div>
     <div className="mt-10 text-center">
-            <Link 
-                to="/projects"
-                className="inline-block px-3 py-2 bg-blue-600 text-white font-semibold text-xs ml-40 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-            >
-                My Projects →
-            </Link>
+    <Link 
+    to="/projects"
+    className="inline-block px-3 py-2 bg-blue-600 text-white font-semibold text-xs ml-40 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+>
+    My Projects →
+</Link>
+
         </div>
        
 </section>
