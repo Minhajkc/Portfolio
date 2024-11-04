@@ -365,10 +365,17 @@ function Home() {
     <Link 
     to="/projects"
     className="inline-block px-3 py-2 bg-blue-600 text-white font-semibold text-xs ml-40 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    onClick={() => {
+        const scrollOptions = { top: 0 };
+        if (window.innerWidth > 768) {
+            scrollOptions.behavior = 'smooth';
+        }
+        window.scrollTo(scrollOptions);
+    }}
 >
     My Projects →
 </Link>
+
 
         </div>
        
