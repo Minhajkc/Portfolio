@@ -94,7 +94,7 @@ function Home() {
             title: "Eduprops E-Learning",
             image: "/images/Eduprops.png",
             description: 'EduProps is an innovative e-learning web application built with React, MongoDB, Express, and Node. It features three interfaces: students, admin, and mentor, providing comprehensive tools for education management.',
-            link: 'https://github.com/Minhajkc/Eduprops.git/',
+            link: 'https://eduprops.vercel.app',
             technologies: ['React','Node.js', 'MongoDB', 'Express']
           },
         { 
@@ -364,7 +364,7 @@ function Home() {
     <div className="mt-10 text-center">
     <Link 
     to="/projects"
-    className="inline-block px-3 py-2 bg-blue-600 text-white font-semibold text-xs ml-40 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+    className="inline-block px-3 py-2  bg-blue-600 text-white font-semibold text-xs ml-40 rounded-lg hover:bg-blue-700 transition-colors duration-300"
     onClick={() => {
         const scrollOptions = { top: 0 };
         if (window.innerWidth > 768) {
