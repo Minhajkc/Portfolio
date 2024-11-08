@@ -249,7 +249,8 @@ function Home() {
                     'RESTful APIs', 
                     'MongoDB & Database Design', 
                     'Authentication & Authorization (JWT)',
-                    'Database Design'
+                    'Database Design',
+                    'Data Structures and Algorithms'
                 ]} 
             />
 

@@ -37,13 +37,13 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className=' '>
         {showNavbar && (
           <div className="navbar-container">
             <Navbar />
           </div>
         )}
-        <Routes>
+        <Routes >
           <Route path="/" element={<AnimatedRoute component={Home} />} />
           <Route path="/about" element={<AnimatedRoute component={About} />} />
           <Route path="/projects" element={<AnimatedRoute component={Projects} />} />
